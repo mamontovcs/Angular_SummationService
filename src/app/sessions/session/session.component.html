@@ -1,0 +1,22 @@
+<form #form="ngForm">
+    <div class="form-group">
+        <label>First digit</label>
+        <input pattern="^(-|\+)?(([1-9][0-9]*)|(0))(?:\.[0-9]+)?$" name="DigitX" #DigitX="ngModel" [(ngModel)]="service.formData.DigitX" class="form-control" required>
+        <div class="validation-error" *ngIf="DigitX.invalid && DigitX.touched">Only digits</div>
+    </div>
+    <div class="form-group">
+        <label>Second digit</label>
+        <input pattern="^(-|\+)?(([1-9][0-9]*)|(0))(?:\.[0-9]+)?$" name="DigitY" #DigitY="ngModel" [(ngModel)]="service.formData.DigitY" class="form-control" required>
+        <div class="validation-error" *ngIf="DigitY.invalid && DigitY.touched">Only digits</div>
+    </div>
+    <div class="form-group">
+        <label>Sum</label>
+        <input readonly name="Sum" #Sum="ngModel" [(ngModel)]="service.formData.Sum" class="form-control">
+    </div>
+    <div class="form-group">
+        <button (click)="onCalculate(form)" type="success" [disabled]="form.invalid" class="btn btn-success d-block mx-auto">Calculate</button>
+    </div>
+    <div class="form-group">
+        <button (click)="onSubmit(form)" type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block">Submit</button>
+    </div>
+</form>

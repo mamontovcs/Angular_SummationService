@@ -1,0 +1,9 @@
+<table class="table table-hover">
+    <tr *ngFor="let sess of service.list">
+        <td>ID: {{sess.Id}}</td>
+        <td>{{sess.DigitX}}</td>
+        <td>{{sess.DigitY}}</td>
+        <td>{{sess.Sum}}</td>
+        <td><button (click)="onDelete(sess.Id)" class="btn btn-outline-danger">X</button></td>
+    </tr>
+</table>
